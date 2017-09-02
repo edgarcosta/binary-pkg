@@ -8,10 +8,10 @@ build: |
     export SAGE_PARALLEL_SPKG_BUILD=yes
     export MAKE='make -j{ncpu}'
     make || exit 1
-    ./sage -i gap_packages
-    ./sage -i database_gap
-    ./sage -i pip
-    ./sage -b
+    ./sage -i gap_packages || exit 1
+    ./sage -i database_gap || exit 1
+    ./sage -i pip || exit 1
+    ./sage -b || exit 1
     git gc --aggressive --prune=now
 
 version: |
