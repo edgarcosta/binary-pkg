@@ -1,7 +1,7 @@
 name: SageMath
 
 repository: https://github.com/sagemath/sage.git
-branch: develop
+branch: tags/8.0
 
 build: |
     export SAGE_FAT_BINARY=yes
@@ -10,6 +10,10 @@ build: |
     export SAGE_INSTALL_GCC=yes
     export MAKE='make -j{ncpu}'
     make || exit 1
+    ./sage -i gap_packages
+    ./sage -i database_gap
+    ./sage -i pip
+    ./sage -b
     git gc --aggressive --prune=now
 
 version: |
@@ -74,3 +78,4 @@ package:
           cp {path}/src/mac-app/sage-{version}-*.app.dmg $DMG
     files: *FILES_DEFAULT
     rewrite_path: *REWRITE_PATH_DEFAULT
+
