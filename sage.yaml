@@ -1,7 +1,7 @@
 name: SageMath
 
 repository: https://github.com/sagemath/sage.git
-branch: tags/8.0
+branch: '8.0'
 
 build: |
     export SAGE_FAT_BINARY=yes
