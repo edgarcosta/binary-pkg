@@ -22,7 +22,7 @@ version: |
 package:
   - name: Full binary tarball
     dist: |
-        tar cf {dist}/sage-{version}-{osname}-{arch}.tar {path}
+        tar cjf {dist}/sage-{version}-{osname}-{arch}.tar.bz2 {path}
     files: &FILES_DEFAULT
       - include: '**'
       - exclude: '**.pyc'
