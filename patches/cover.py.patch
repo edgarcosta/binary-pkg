@@ -1,0 +1,29 @@
+diff --git a/local/lib/python2.7/site-packages/nose/plugins/cover.py b/local/lib/python2.7/site-packages/nose/plugins/cover.py
+index fbe2e30..48e2b8d 100644
+--- a/local/lib/python2.7/site-packages/nose/plugins/cover.py
++++ b/local/lib/python2.7/site-packages/nose/plugins/cover.py
+@@ -138,7 +138,7 @@ class Coverage(Plugin):
+         if self.enabled:
+             self.status['active'] = True
+             self.coverInstance = coverage.coverage(auto_data=False,
+-                branch=self.coverBranches, data_suffix=conf.worker,
++                branch=self.coverBranches, data_suffix=True,
+                 source=self.coverPackages)
+             self.coverInstance._warn_no_data = False
+             self.coverInstance.is_worker = conf.worker
+@@ -181,13 +181,13 @@ class Coverage(Plugin):
+         """
+         log.debug("Coverage report")
+         self.coverInstance.stop()
+-        self.coverInstance.combine()
++        #self.coverInstance.combine()
+         self.coverInstance.save()
+         modules = [module
+                     for name, module in sys.modules.items()
+                     if self.wantModuleCoverage(name, module)]
+         log.debug("Coverage report will cover modules: %s", modules)
+-        self.coverInstance.report(modules, file=stream)
++        #self.coverInstance.report(modules, file=stream)
+ 
+         import coverage
+         if self.coverHtmlDir:
