@@ -9,7 +9,7 @@ build: |
     # in the binary.
     export SAGE_INSTALL_GCC=yes
     export MAKE='make -j{ncpu}'
-    make || exit 1
+    make build || exit 1
     ./sage -i gap_packages || exit 1
     ./sage -i database_gap || exit 1
     ./sage -i pip || exit 1
