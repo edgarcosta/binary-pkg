@@ -1,6 +1,30 @@
 TL;DR
 =====
 
+1- spinoff a VM
+ * n1-highcpu-4 (4 vCPUs, 3.6 GB memory)
+ * 25 GB SSD
+ * Ubuntu 14.04 LTS
+
+2- `sudo apt-get install git make gcc g++ m4`
+
+3- `git clone https://github.com/edgarcosta/binary-pkg.git`
+
+4-  `cd binary-pkg`
+
+5- edit sage.yaml line 4 accordingly
+
+6- In a screen `cd binary-pkg && make bdist-sage-linux` and wait  `5+` hours
+
+7 - `gcloud compute --project "lmfdbmirror" copy-files --zone "us-central1-b" build-sage-1:binary-pkg/dist/sage-8.1-Ubuntu_14.04-x86_64.tar.bz2 .`
+
+8 -`gsutil cp sage-8.1-Ubuntu_14.04-x86_64.tar.bz2 gs://sage-lmfdb/sage-8.1-Ubuntu_14.04-x86_64.tar.bz2`
+
+9 - `gsutil acl ch -u AllUsers:R gs://sage-lmfdb/sage-8.1-Ubuntu_14.04-x86_64.tar.bz2`
+
+Original TL;DR
+=====
+
 To build Sage binaries, just clone this repository and run
 
     git clone https://github.com/edgarcosta/binary-pkg.git
