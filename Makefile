@@ -15,9 +15,12 @@ install-clean:
 	rm -rf tools/binary-pkg
 	rm -rf tools/bootstrap/miniconda
 
-.PHONY: install-tools install-clean
+.PHONY: install-tools install-clean phony_explicit
 
-checkout-%: %.yaml $(TOOL)
+phony_explicit:
+
+#a clean or erasing source/SageMath/ might be necessary for git to not complain
+checkout-%: %.yaml $(TOOL) phony_explicit
 	$(TOOL)/python -m binary_pkg.cmdline --config $< --checkout
 
 build-%: %.yaml $(TOOL)
