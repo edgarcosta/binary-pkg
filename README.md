@@ -14,14 +14,9 @@ TL;DR
 
 5- edit sage.yaml line 4 accordingly
 
-6- In a screen `cd binary-pkg && make bdist-sage-linux` and wait  `5+` hours
+6- In a screen `cd binary-pkg && make clean && make bdist-sage-linux` and wait  `5+` hours
 
-7 - Now on your local machine, copy the tar and then reupload to google storate. 
-`gcloud compute --project "lmfdbmirror" copy-files --zone "us-central1-b" build-sage-1:binary-pkg/dist/sage-8.3-Ubuntu_14.04-x86_64.tar.bz2 .`
-
-8 -`gsutil cp sage-8.3-Ubuntu_14.04-x86_64.tar.bz2 gs://sage-lmfdb/sage-8.3-Ubuntu_14.04-x86_64.tar.bz2`
-
-9 - `gsutil acl ch -u AllUsers:R gs://sage-lmfdb/sage-8.3-Ubuntu_14.04-x86_64.tar.bz2`
+7 - Now on your local machine, copy the tar and then reupload to `grace.mit.edu` at `/home/lmfdb/sage-lmfdb/'
 
 Original TL;DR
 =====
