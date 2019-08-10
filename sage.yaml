@@ -11,7 +11,6 @@ build: |
     export MAKE='make -j{ncpu}'
     make build || exit 1
     ./sage -i gap_packages || exit 1
-    ./sage -i database_gap || exit 1
     ./sage -i pip || exit 1
     ./sage -b || exit 1
     git gc --aggressive --prune=now
